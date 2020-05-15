@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Edit  page</h1>
+  <form class="form-horizontal" action="{{url_for('update')}}" method="POST">
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Rollno:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="rollno" 
+      name="rollno" value="{{data[0][1]}}" placeholder="Enter Rollno">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="name" 
+      name="name" value="{{data[0][2]}}"placeholder="Enter Name">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Email:</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="email" 
+      name="email" value="{{data[0][6]}}"placeholder="Enter Email">
+    </div>
+  </div>
+
+      <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Phno:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="phno" name="phno" placeholder="Enter Phno" value="{{data[0][7]}}">
+    </div>
+  </div>
+
+  <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">College:</label>
+        <div class="col-sm-6">
+        <select class="form-control" id="College" name="college">
+          <option value="AEC" {% if data[0][3]=="AEC"%} selected {% endif %}>AEC</option>
+          <option value="ACET" {% if data[0][3]=="ACET"%} selected {% endif %}>ACET</option>
+          <option value="ACOE" {% if data[0][3]=="ACOE"%} selected {% endif %}>ACOE</option>
+
+        </select>
+      </div>
+  </div>
+
+
+  <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Branch:</label>
+        <div class="col-sm-6">
+        <select class="form-control" id="branch" name="branch">
+          <option value="CSE" {% if data[0][4]=="CSE"%} selected {% endif %}>CSE</option>
+          <option value="ECE" {% if data[0][4]=="ECE"%} selected {% endif %}>ECE</option>
+          <option value="IT" {% if data[0][4]=="IT"%} selected {% endif %}>IT</option>
+        </select>
+      </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Section:</label>
+    <div class="col-sm-6">
+      <div class="radio_inline">
+        <label class="radio-inline"><input type="radio" name="section" value="A" {% if data[0][5]=="A"%} checked {% endif %}>A</label>
+<label class="radio-inline"><input type="radio" name="section" value="B" {% if data[0][5]=="B"%} checked {% endif %}>B</label>
+<label class="radio-inline"><input type="radio" name="section" value="C" {% if data[0][5]=="C"%} checked {% endif %}>C</label>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Gender:</label>
+    <div class="col-sm-6">
+      <div class="radio_inline">
+        <label class="radio-inline"><input type="radio" name="gender" value="Male" {% if data[0][8]=="Male"%} checked {% endif %}>Male</label>
+<label class="radio-inline"><input type="radio" name="gender" value="Female" {% if data[0][8]=="Female"%} checked {% endif %}>Female</label>
+<label class="radio-inline"><input type="radio" name="gender" value="Others" {% if data[0][8]=="Others"%} checked {% endif %}>Others</label>
+      </div>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Languages Known</label>
+    <div class="col-sm-6">
+      <div class="radio_inline">
+        <label class="checkbox-inline"><input type="checkbox" name="lan" value="C" {% if 'C' in lan %} checked {% endif %}>C</label>
+<label class="checkbox-inline"><input type="checkbox" name="lan" value="CPP" {% if 'CPP' in lan %} checked {% endif %}>CPP</label>
+<label class="checkbox-inline"><input type="checkbox" name="lan" value="JAVA" {% if 'JAVA' in lan %} checked {% endif %}>JAVA</label>
+      </div>
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" value={{data[0][0]}} name='id'>Submit</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
